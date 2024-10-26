@@ -1,57 +1,27 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="ja"> 
   <head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>おみくじアプリ</title> 
-    <style> 
-      body { text-align: center; font-family: Arial, sans-serif; margin-top: 50px; } 
-      button { padding: 10px 20px; font-size: 16px; cursor: pointer; border: none; background-color: #007BFF; color: white; border-radius: 5px; }
-      button:hover { background-color: #0056b3; }
-      img { max-width: 80%; /* 画面幅に応じて縮小 */ height: auto; /* 縦横比を維持 */ margin-top: 20px; } 
-    </style> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハロウィンおみくじ</title>
+    <!-- BootstrapのCDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+    <!-- Google Fonts: ハロウィンっぽいフォント --> 
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <!-- 外部CSSファイルを読み込み -->
+    <link rel="stylesheet" href="styles.css">
   </head> 
-  <body> 
-    <h1>おみくじを引いてみよう！</h1> 
-    <button id="drawButton">おみくじを引く</button>
-    <p id="result"></p> 
-    <img id="resultImage" style="display:none;"> 
-  
-    <script>
-
-    </script> 
-    <script> 
-    //確率変更Ver
-    const omikujiResults = [ 
-      { text: "星4", img: "star4.jpg", probability: 10 },
-      { text: "星3", img: "star3.jpg", probability: 20 },
-      { text: "星2", img: "star2.jpg", probability: 30 },
-      { text: "星1", img: "star1.jpg", probability: 40 } ];
-      document.getElementById("drawButton").addEventListener("click", function() { const randomValue = Math.random() * 100;
-     // 0から100の乱数を生成 
-    let cumulativeProbability = 0; let result;
-    for (let i = 0; i < omikujiResults.length; i++) { cumulativeProbability += omikujiResults[i].probability;
-      if (randomValue < cumulativeProbability)
-        { result = omikujiResults[i]; break; } } document.getElementById("result").textContent = result.text;
-        document.getElementById("resultImage").src = result.img; document.getElementById("resultImage").style.display = "block";
-        }
-      );
-    /*　
-      //確率固定の場合
-      const omikujiResults = [ { text: "大吉", img: "daikichi.png" },
-        { text: "中吉", img: "chuukichi.png" },
-        { text: "小吉", img: "shoukichi.png" },
-        { text: "吉", img: "kichi.png" },
-        { text: "凶", img: "kyo.png" } 
-      ];
-      document.getElementById("drawButton").addEventListener("click",
-        function() { const randomResult = omikujiResults[Math.floor(Math.random() * omikujiResults.length)];
-          document.getElementById("result").textContent = randomResult.text;
-          document.getElementById("resultImage").src = randomResult.img;
-          document.getElementById("resultImage").style.display = "block"; 
-        }
-      );      
-    */
-    </script>
-  </body> 
-</html>
+  <body>
+    <div class="container">
+      <!-- タイトル --> 
+      <h1>ハロウィンおみくじを引こう！</h1>
+      <!-- おみくじボタン --> 
+      <button id="drawButton">おみくじを引く</button>
+      <!-- おみくじ結果表示 --> 
+      <div class="result-container"> 
+        <p id="result" class="h3"></p> 
+        <img id="resultImage" style="display:none;" class="img-fluid rounded"> </div>
+      </div> <footer> <p>ハッピーハロウィン！🎃</p> </footer> 
+      <!-- 外部JSファイルを読み込み --> 
+      <script src="scripts.js"></script>
+    </body> </html>
