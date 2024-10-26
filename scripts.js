@@ -1,9 +1,9 @@
 const omikujiResults =
   [ 
-    { text: "星4", img: "star4.png", probability: 10 },
-    { text: "星3", img: "star3.png", probability: 20 },
-    { text: "星2", img: "star2.png", probability: 30 },
-    { text: "星1", img: "star1.png", probability: 40 } 
+    { text: "星4", img: "star4.jpg", probability: 10 },
+    { text: "星3", img: "star3.jpg", probability: 20 },
+    { text: "星2", img: "star2.jpg", probability: 30 },
+    { text: "星1", img: "star1.jpg", probability: 40 } 
   ];
 document.getElementById("drawButton").addEventListener("click", function() 
   {
